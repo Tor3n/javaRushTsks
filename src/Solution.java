@@ -21,6 +21,8 @@ public class Solution {
 
     public static void main(String[] args) throws IOException {
 
+        System.out.println("Input shoudl be like: \"market_1.csv billing_1.csv\"");
+
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
             input = reader.readLine();
         } catch (IOException e){
@@ -43,7 +45,6 @@ public class Solution {
             counter = 0;
             readMarket();
         }
-
 
         System.out.println("order_id,shop_name,shop_id,cost");
 
@@ -75,8 +76,7 @@ public class Solution {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        //readerFile1=new BufferedReader(new InputStreamReader(new FileInputStream(file1)));
-        //readerFile1=new BufferedReader(new InputStreamReader(new FileInputStream(fullname1)));
+
         try {
             String header = readerFile1.readLine();
 
@@ -91,7 +91,6 @@ public class Solution {
                         counter++;
                         continue;
                     }
-                    //shop_id[counter] = Long.parseLong(buffer.substring(0, comma));
                     shop_name[counter] = buffer.substring(comma + 1, buffer.length());
                     counter++;
                 }
@@ -111,10 +110,6 @@ public class Solution {
                     counter++;
                 }
             }
-
-            //for (int i = 0; i < shop_id.length; i++) {
-            //    System.out.println(shop_id[i]);
-            //}
 
         } catch (IOException e) {
         e.printStackTrace();
@@ -139,8 +134,6 @@ public class Solution {
         }
 
         try {
-            //readerFile2=new BufferedReader(new InputStreamReader(new FileInputStream(file2)));
-            //readerFile2=new BufferedReader(new InputStreamReader(new FileInputStream(fullname2)));
             String header = readerFile2.readLine();
 
             int order = header.indexOf("order");
@@ -163,14 +156,6 @@ public class Solution {
                 counter++;
             }
 
-            /*System.out.println("order_id:");
-            for (int i = 0; i < order_id.length; i++) {
-                if(order_id[i]!=null){
-                    System.out.println(order_id[i]);
-                }
-            }*/
-
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -180,9 +165,6 @@ public class Solution {
                 e.printStackTrace();
             }
         }
-
-
-
 
     }
 }
